@@ -6,12 +6,12 @@ export const useObserver = (ref, canLoad, isLoading, callback) => {
     useEffect(() => {
         if (isLoading) return;
         if (observer.current) observer.current.disconnect();
-        const cb = function (entries, observer) {
+        const intersectionCallback = function (entries, observer) {
             if (entries[0].isIntersecting && canLoad) {
                 callback();
             }
         };
-        observer.current = new IntersectionObserver(cb);
+        observer.current = new IntersectionObserver(intersectionCallback);
         observer.current.observe(ref.current);
     }, [isLoading]);
 };

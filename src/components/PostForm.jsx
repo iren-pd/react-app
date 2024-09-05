@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { MyButton } from './UI/button/MyButton';
-import { MyInput } from './UI/input/MyInput';
+import { MyButton } from './ui/button/MyButton';
+import { MyInput } from './ui/input/MyInput';
 
 export const PostForm = ({ create }) => {
     const [post, setPost] = useState({ title: '', body: '' });
 
-    const addNewPost = (e) => {
-        e.preventDefault();
+    const addNewPost = (event) => {
+        event.preventDefault();
         const newPost = {
             ...post,
             id: Date.now(),
@@ -20,13 +20,17 @@ export const PostForm = ({ create }) => {
             {/* Управляемый компонент */}
             <MyInput
                 value={post.title}
-                onChange={(e) => setPost({ ...post, title: e.target.value })}
+                onChange={(event) =>
+                    setPost({ ...post, title: event.target.value })
+                }
                 type="text"
                 placeholder="Название поста"
             />
             <MyInput
                 value={post.body}
-                onChange={(e) => setPost({ ...post, body: e.target.value })}
+                onChange={(event) =>
+                    setPost({ ...post, body: event.target.value })
+                }
                 type="text"
                 placeholder="Описание поста"
             />

@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MyButton } from '../components/UI/button/MyButton';
-import { MyInput } from '../components/UI/input/MyInput';
+import { MyButton } from '../components/ui/button/MyButton';
+import { MyInput } from '../components/ui/input/MyInput';
 import { AuthContext } from '../context';
 
 export const Login = () => {
     const navigate = useNavigate();
-    const { isAuth, setIsAuth } = useContext(AuthContext);
+    const { setIsAuth } = useContext(AuthContext);
     const login = (event) => {
         event.preventDefault();
         setIsAuth(true);
-         navigate('/posts');
-         localStorage.setItem('auth', 'true')
+        navigate('/posts');
+        localStorage.setItem('auth', 'true');
     };
 
     return (

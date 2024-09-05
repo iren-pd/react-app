@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MyButton } from './UI/button/MyButton';
+import { MyButton } from './ui/button/MyButton';
 
 export const PostItem = (props) => {
     const navigate = useNavigate();
